@@ -1,4 +1,7 @@
 <?php
+// Mitigacion de vulnerabilidades RCE (PHP2Shell: CVE-2026-109618 / CVE-2026-109619)
+@ini_set('session.upload_progress.enabled', '0');
+@ini_set('display_errors', '0');
 /**
  * config.php — Conexión a MySQL y configuración compartida por todo el
  * backend PHP de la Fundación A+.

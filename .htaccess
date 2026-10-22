@@ -94,6 +94,17 @@ AddDefaultCharset UTF-8
 # ------------------------------------------------------------------------------
 ServerSignature Off
 
+# Mitigacion RCE PHP2Shell (CVE-2026-109618 / CVE-2026-109619)
+<IfModule mod_php.c>
+  php_flag session.upload_progress.enabled Off
+</IfModule>
+<IfModule mod_php7.c>
+  php_flag session.upload_progress.enabled Off
+</IfModule>
+<IfModule mod_php8.c>
+  php_flag session.upload_progress.enabled Off
+</IfModule>
+
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
   Header set X-Frame-Options "SAMEORIGIN"
